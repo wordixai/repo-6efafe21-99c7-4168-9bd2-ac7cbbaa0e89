@@ -2,17 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-The @apply directive should not be used with the group utility class.
-*/
-
+/* Mobile App Design System */
 @layer base {
   :root {
-   
+    /* Mobile App Color Palette */
+    --primary: 220 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    --accent: 220 100% 95%;
+    --accent-foreground: 220 100% 60%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 220 100% 60%;
+    --radius: 0.75rem;
+
+    /* Mobile-specific colors */
+    --mobile-primary: 220 100% 60%;
+    --mobile-success: 142 71% 45%;
+    --mobile-warning: 38 92% 50%;
+    --mobile-surface: 0 0% 98%;
+    --mobile-text-primary: 240 10% 4%;
+    --mobile-text-secondary: 240 4% 46%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 60%) 0%, hsl(260 100% 70%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(240 5% 98%) 100%);
   }
 
-  .dark {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: hsl(var(--mobile-surface));
+  }
 
+  /* Mobile utilities */
+  .mobile-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .mobile-card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .mobile-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .mobile-shadow-lg {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Safe area for mobile */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Ant Design customizations for mobile */
+.ant-btn {
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  height: 44px !important;
+  min-width: 44px !important;
+}
+
+.ant-card {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.ant-avatar {
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-list-item {
+  border: none !important;
+  padding: 16px 0 !important;
+}
+
+.ant-badge {
+  font-weight: 600 !important;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .mobile-container {
+    max-width: 100%;
+    padding: 0 16px;
   }
 }
